@@ -19,9 +19,16 @@ app.use((req, res, next) => {
 	next();
 });
 
+const userRoutes = require("./routes/user");
+const petRoutes = require("./routes/pet");
+const diaryRoutes = require("./routes/diaryLogs");
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/pets", petRoutes);
+app.use("/api/v1/diary", diaryRoutes);
+
 app.get("/", (req, res) => {
 	res.status(200).json({
-		title: "NODEJS SQLITE DEMO"
+		title: "Veveto Technical Task - NodeJS Backend"
 	});
 });
 
@@ -34,9 +41,7 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
 	res.status(error.status || 500);
 	res.json({
-		error: {
-			message: error.message
-		}
+		error: error.message
 	});
 });
 
