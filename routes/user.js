@@ -9,8 +9,7 @@ router.get(
 	[
 		param("userID")
 			.exists()
-			.isInt()
-			.custom(value => value > 0)
+			.isInt({ gt: 0 })
 	],
 	userController.getUserByID
 );
@@ -20,8 +19,7 @@ router.get(
 	[
 		param("userID")
 			.exists()
-			.isInt()
-			.custom(value => value > 0)
+			.isInt({ gt: 0 })
 	],
 	userController.getUserPets
 );

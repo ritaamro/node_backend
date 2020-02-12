@@ -9,16 +9,18 @@ router.get(
 	[
 		query("userID")
 			.exists()
-			.isInt()
+			.isInt({ gt: 0 })
 			.custom(value => value > 0),
 		query("petID")
 			.exists()
-			.isInt()
+			.isInt({ gt: 0 })
 			.custom(value => value > 0),
 		query("limit")
 			.optional()
-			.isInt()
-			.custom(value => value > 0)
+			.isInt({ gt: 0 }),
+		query("offset")
+			.optional()
+			.isInt({ gt: 0 })
 	],
 	diaryController.getLogs
 );
