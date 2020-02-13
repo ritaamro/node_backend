@@ -18,6 +18,13 @@ exports.getOrders = async (req, res, next) => {
 			.from("Orders")
 			.where("PetID", petID)
 			.andWhere("UserID", userID)
+			.select(
+				"Orders.OrderID",
+				"Orders.Status",
+				"Orders.OrderedAt",
+				"VevetoProducts.Name as Name"
+			)
+			.innerJoin("VevetoProducts", "Orders.ProdID", "VevetoProducts.ProdID")
 			.limit(limit)
 			.offset(offset);
 

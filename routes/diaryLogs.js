@@ -15,10 +15,10 @@ router.get(
 			.isInt({ gt: 0 }),
 		query("limit")
 			.optional()
-			.isInt({ gt: 0 }),
+			.isInt(),
 		query("offset")
 			.optional()
-			.isInt({ gt: 0 })
+			.isInt()
 	],
 	diaryController.getLogs
 );

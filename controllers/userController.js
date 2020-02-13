@@ -30,7 +30,7 @@ exports.getUserPets = async (req, res, next) => {
 		const pets = await knex
 			.from("Pets")
 			.where("Pets.UserID", userID)
-			.select("Pets.PetID", "Pets.Name");
+			.select("Pets.PetID", "Pets.Name", "Pets.ImageURL");
 
 		if (pets.length) res.status(200).json({ pets });
 		else res.status(204).send();

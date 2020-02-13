@@ -16,6 +16,7 @@ exports.getPetByID = async (req, res, next) => {
 			.select(
 				"Pets.PetID",
 				"Pets.Name",
+				"Pets.ImageURL",
 				"Vets.VetID",
 				"Vets.Name as VetName",
 				"Vets.PhoneNumber as VetPhoneNumber"

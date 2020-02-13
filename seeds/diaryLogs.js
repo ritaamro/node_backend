@@ -24,8 +24,20 @@ exports.seed = function(knex) {
 					PetID: 1
 				},
 				{
+					Type: "Medicines",
+					LogMessage: "Flea Pills",
+					UserID: 1,
+					PetID: 1
+				},
+				{
 					Type: "Events",
 					LogMessage: "Check-up with Dr. Muller",
+					UserID: 1,
+					PetID: 1
+				},
+				{
+					Type: "Events",
+					LogMessage: "Play date with Max",
 					UserID: 1,
 					PetID: 1
 				},
