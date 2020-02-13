@@ -9,11 +9,13 @@ const onError = error => {
 };
 
 const onListening = () =>
-	console.log(`Backend server listening on port ${port}`);
+	console.log(
+		`Backend server listening on port ${port} on ${process.env.HOST ||
+			"localhost"}`
+	);
 
 app.set("port", port);
 const server = http.createServer(app);
 server.on("error", onError);
 server.on("listening", onListening);
-
-server.listen(port, "192.168.0.103");
+process.env.HOST ? server.listen(port, process.env.HOST) : server.listen(port);
