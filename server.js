@@ -1,8 +1,19 @@
 const app = require("./app");
+const http = require("http");
 
 const port = process.env.PORT || 3000;
-app.set("port", port);
 
-app.listen(port, () => {
-	console.log("Server listening on port:", app.get("port"));
-});
+const onError = error => {
+	console.log(error);
+	process.exit(1);
+};
+
+const onListening = () =>
+	console.log(`Backend server listening on port ${port}`);
+
+app.set("port", port);
+const server = http.createServer(app);
+server.on("error", onError);
+server.on("listening", onListening);
+
+server.listen(port, "192.168.0.103");
