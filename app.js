@@ -22,9 +22,13 @@ app.use((req, res, next) => {
 const userRoutes = require("./routes/user");
 const petRoutes = require("./routes/pet");
 const diaryRoutes = require("./routes/diaryLogs");
+const orderRoutes = require("./routes/order");
+const productRoutes = require("./routes/product");
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/pets", petRoutes);
 app.use("/api/v1/diary", diaryRoutes);
+app.use("/api/v1/orders", orderRoutes);
+app.use("/api/v1/products", productRoutes);
 
 app.get("/", (req, res) => {
 	res.status(200).json({

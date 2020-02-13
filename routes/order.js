@@ -1,6 +1,6 @@
 const express = require("express");
 const { query } = require("express-validator");
-const diaryController = require("../controllers/diaryController");
+const orderController = require("../controllers/orderController");
 
 const router = express.Router();
 
@@ -20,7 +20,7 @@ router.get(
 			.optional()
 			.isInt({ gt: 0 })
 	],
-	diaryController.getLogs
+	orderController.getOrders
 );
 
 module.exports = router;
